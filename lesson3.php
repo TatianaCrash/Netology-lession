@@ -19,6 +19,7 @@ foreach ($fauna as $continent => $animals) {
 	}
 }
 
+
 //задаем массив, где названия животных состоят из 2х слов
  $TwoWordNames = array();
 
