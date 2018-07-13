@@ -1,83 +1,38 @@
 <?php
-// iouhui
+
 //задаем основной массив
-$Animals = array (
-	"Europe" => [
-		"Lepus europaeus",
-		"Lynx"
-	],
-	"Asia" => [
-		"Ailuropoda melanoleuca",
-		"Herpestes"
-	],
-	"Africa" => [
-		"Gorilla",
-		"Hippopotamus amphibius"
-	],
-	"North America" => [
-		"Bison",
-		"Puma concolor"
-	],
-	"South America" => [
-		"Panthera onca",
-		"Lama guanicoe"
-	],
-	"Australia" => [
-		"Ornithorhynchus anatinus",
-		"rocodylus porosus"
-	],
-	"Antarctica" => [
-		"Aptenodytes patagonicus",
-		"Orcinus orca"
-	]
-);
-//выводим массив
-foreach ($Animals as $continent => $dwellers) {
-	echo '<b>' . $continent, '<b></br>';
-	foreach ($dwellers as $dweller) {
-		echo $dweller, '<br>';
-	}
-}
- /*//задаем массив, где названия животных состоят из 2х слов
+$fauna = [
+	'Europe' => ['Lepus europaeus', 'Lynx', 'Alces alces'],
+	'Asia' => ['Ailuropoda melanoleuca', 'Herpestes'],
+	'Africa' => ['Gorilla', 'Hippopotamus amphibius'],
+	'North America' => ['Bison', 'Puma concolor'],
+	'South America' => ['Cingulata', 'Lama guanicoe'],
+	'Australia' => ['Vombatidae', 'Crocodylus porosus'],
+	'Antarctica' => ['Aptenodytes patagonicus', 'Orcinus orca',]
+];
+
+//задаем массив, где названия животных состоят из 2х слов
  $TwoWordNames = array();
 
- //находим названия животных, которые состоят из 2х слов и складываес в $TwoWordNames
-foreach ($Animals as $continent => $dwellers) {
-	foreach ($dwellers as $dweller) {
-		if (strpos($dweller, ' ') !== false) { //проверяем наличие пробела между словами
-			array_push($TwoWordNames, $dweller); //складываем названия с пробелом в массив $TwoWordNames
+ //находим названия животных, которые состоят из 2х слов и складываем в $TwoWordNames
+foreach ($fauna as $continent => $animals) {
+	foreach ($animals as $key => $animal) {
+		if (strpos($animal) == 2) { //проверяем наличие пробела между словами
+			array_push($TwoWordNames, $animal); //складываем названия с пробелом в массив $TwoWordNames
 		}
 	}
 }
-//задаем массив, с названиями из перемешанных слов
- $MixedWordsNames = array();
- 
- echo $FirstWords = $SecondWords = [];
 
- foreach ($TwoWordNames as $key => $value) {
-	list($FirstWord[], $SecondWord[]) = explode(' ', $value);
- }
+$FirstWords = $SecondWords = [];
+    //находим пробел между первым и вторыми словами
+    foreach($TwoWordNames as $value)
+        list($FirstWords[], $SecondWords[]) = explode(' ', $value);
+    //перемешиваем первые слова
+    shuffle($FirstWords);
 
- //перемешиваем первые слова названий
- shuffle($FirstWord);
+    echo '<br><b>Массив придуманных животных:</b><br>';
+    //выводим перемешанные первые слова со вторыми словами
+    foreach($FirstWords as $key=>$FirstWord)
+        echo "{$FirstWord} {$SecondWords[$key]}, <br>" . PHP_EOL;
 
- foreach ($FirstWords as $key => $FirstWord) {
-	 	echo "{$FirstWord} {[$key]}" . PHP_EOL;
-
-/задаем массив, с названиями из перемешанных слов
- $MixedWordsNames = array();
- 
- $FirstWords = $SecondWords = [];
-
- foreach ($TwoWordNames as $value) {
-	list($FirstWord[], $SecondWord[]) = explode(' ', $value);
- }
-
- //перемешиваем первые слова названий
- shuffle($FirstWord);
-
- foreach ($FirstWords as  $FirstWord) {
-	 	echo "{$FirstWord} {$SecondWords}" . '<br>;
-
-*/
-?>   
+?>  
