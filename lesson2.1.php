@@ -1,8 +1,7 @@
 <?php
+	$file = file_get_contents('lesson2.1.json');
+	$data = json_decode($file, true);
 
-	$jsonData = file_get_contents('lesson2.1.json');
-	$data = json_decode($jsonData);
-	echo &$data
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +23,14 @@
 			</tr>
 		</thead>
 		<tboby>
-		<?php
-        foreach ($data as $card) {
-            ?>
+			<?php foreach ($data as $item) :?>
 			<tr>
-				<td><?php echo $card['firstName'] ?></td>
-				<td><?php echo $card['lastName'] ?></td>
-				<td><?php echo $card['address'] ?></td>
-				<td><?php echo $card['phoneNumber'] ?></td>
+				<td><?php echo $item['firstName'] ?></td>
+				<td><?php echo $item['lastName'] ?></td>
+				<td><?php echo $item['address'] ?></td>
+				<td><?php echo $item['phoneNumber'] ?></td>
 			</tr>
-		<?php } ?>
+		<?php endforeach;?>
 		</tbody>
 	</table>
 </body>
