@@ -23,15 +23,14 @@ foreach ($fauna as $continent => $animals) {
 
 $FirstWords = $SecondWords = [];
     //находим пробел между первым и вторыми словами
-    foreach($TwoWordNames as $value)
         list($FirstWords[], $SecondWords[]) = explode(' ', $value);
     //перемешиваем первые слова
     shuffle($FirstWords);
+    shuffle($SecondWords);
 
     echo '<br><b>Массив придуманных животных:</b><br>';
     //выводим перемешанные первые слова со вторыми словами
     foreach($FirstWords as $key=>$FirstWord)
-        echo "{$FirstWord} {$SecondWords[$key]}, <br>" . PHP_EOL;
-
+        echo "{$FirstWord} {$SecondWords[$key]}, <br>";
 
 ?>   
